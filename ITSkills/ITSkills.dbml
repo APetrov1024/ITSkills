@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ITSkillsDB" Class="ITSkillsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-V2PRUR7;Initial Catalog=ITSkillsDB;Integrated Security=True" SettingsObjectName="ITSkills.Properties.Settings" SettingsPropertyName="ITSkillsDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employees">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Patronymic" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ProfessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employees_EmployeesSkills" Member="EmployeesSkills" ThisKey="Id" OtherKey="EmployeeID" Type="EmployeesSkills" />
+      <Association Name="Professions_Employees" Member="Professions" ThisKey="ProfessionID" OtherKey="Id" Type="Professions" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Skills" Member="Skills">
+    <Type Name="Skills">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Skill" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProfessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Skills_EmployeesSkills" Member="EmployeesSkills" ThisKey="Id" OtherKey="SkillID" Type="EmployeesSkills" />
+      <Association Name="Professions_Skills" Member="Professions" ThisKey="ProfessionID" OtherKey="Id" Type="Professions" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmployeesSkills" Member="EmployeesSkills">
+    <Type Name="EmployeesSkills">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SkillID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Employees_EmployeesSkills" Member="Employees" ThisKey="EmployeeID" OtherKey="Id" Type="Employees" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Skills_EmployeesSkills" Member="Skills" ThisKey="SkillID" OtherKey="Id" Type="Skills" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Professions" Member="Professions">
+    <Type Name="Professions">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Profession" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Professions_Employees" Member="Employees" ThisKey="Id" OtherKey="ProfessionID" Type="Employees" />
+      <Association Name="Professions_Skills" Member="Skills" ThisKey="Id" OtherKey="ProfessionID" Type="Skills" />
+    </Type>
+  </Table>
+</Database>
