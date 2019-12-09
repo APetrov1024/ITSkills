@@ -122,6 +122,20 @@ namespace ITSkills
             employee.DateOfBirth = BirthDateTimePicker.Value;
             string newProfession = ProfessionComboBox.SelectedItem.ToString();
             employee.ProfessionID = dataContext.Professions.SingleOrDefault(p => p.Profession == newProfession).Id;
+            foreach (string skill in EmployeeSkillsListBox.Items)
+            {
+                EmployeesSkills employeeSkill = new EmployeesSkills();
+                employeeSkill.EmployeeID = this.employeeID;
+                employeeSkill.SkillID = dataContext.Skills.SingleOrDefault(s => s.Skill == skill).Id;
+                var alreadyInDB = from es in dataContext.EmployeesSkills
+                                  where es.EmployeeID == employeeSkill.EmployeeID
+                                  where es.SkillID == employeeSkill.SkillID
+                                  select es;
+                if (alreadyInDB.Count() == 0)
+                {
+                    dataContext.EmployeesSkills.InsertOnSubmit(employeeSkill);
+                }
+            }
             dataContext.SubmitChanges();
         }
 

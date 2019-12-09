@@ -36,6 +36,9 @@ namespace ITSkills
     partial void InsertSkills(Skills instance);
     partial void UpdateSkills(Skills instance);
     partial void DeleteSkills(Skills instance);
+    partial void InsertEmployeesSkills(EmployeesSkills instance);
+    partial void UpdateEmployeesSkills(EmployeesSkills instance);
+    partial void DeleteEmployeesSkills(EmployeesSkills instance);
     partial void InsertProfessions(Professions instance);
     partial void UpdateProfessions(Professions instance);
     partial void DeleteProfessions(Professions instance);
@@ -122,6 +125,8 @@ namespace ITSkills
 		
 		private int _ProfessionID;
 		
+		private EntitySet<EmployeesSkills> _EmployeesSkills;
+		
 		private EntityRef<Professions> _Professions;
 		
     #region Определения метода расширяемости
@@ -144,6 +149,7 @@ namespace ITSkills
 		
 		public Employees()
 		{
+			this._EmployeesSkills = new EntitySet<EmployeesSkills>(new Action<EmployeesSkills>(this.attach_EmployeesSkills), new Action<EmployeesSkills>(this.detach_EmployeesSkills));
 			this._Professions = default(EntityRef<Professions>);
 			OnCreated();
 		}
@@ -272,6 +278,19 @@ namespace ITSkills
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employees_EmployeesSkills", Storage="_EmployeesSkills", ThisKey="Id", OtherKey="EmployeeID")]
+		public EntitySet<EmployeesSkills> EmployeesSkills
+		{
+			get
+			{
+				return this._EmployeesSkills;
+			}
+			set
+			{
+				this._EmployeesSkills.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Professions_Employees", Storage="_Professions", ThisKey="ProfessionID", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Professions Professions
 		{
@@ -325,6 +344,18 @@ namespace ITSkills
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_EmployeesSkills(EmployeesSkills entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employees = this;
+		}
+		
+		private void detach_EmployeesSkills(EmployeesSkills entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employees = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skills")]
@@ -338,6 +369,8 @@ namespace ITSkills
 		private string _Skill;
 		
 		private int _ProfessionID;
+		
+		private EntitySet<EmployeesSkills> _EmployeesSkills;
 		
 		private EntityRef<Professions> _Professions;
 		
@@ -355,6 +388,7 @@ namespace ITSkills
 		
 		public Skills()
 		{
+			this._EmployeesSkills = new EntitySet<EmployeesSkills>(new Action<EmployeesSkills>(this.attach_EmployeesSkills), new Action<EmployeesSkills>(this.detach_EmployeesSkills));
 			this._Professions = default(EntityRef<Professions>);
 			OnCreated();
 		}
@@ -423,6 +457,19 @@ namespace ITSkills
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skills_EmployeesSkills", Storage="_EmployeesSkills", ThisKey="Id", OtherKey="SkillID")]
+		public EntitySet<EmployeesSkills> EmployeesSkills
+		{
+			get
+			{
+				return this._EmployeesSkills;
+			}
+			set
+			{
+				this._EmployeesSkills.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Professions_Skills", Storage="_Professions", ThisKey="ProfessionID", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Professions Professions
 		{
@@ -476,21 +523,52 @@ namespace ITSkills
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_EmployeesSkills(EmployeesSkills entity)
+		{
+			this.SendPropertyChanging();
+			entity.Skills = this;
+		}
+		
+		private void detach_EmployeesSkills(EmployeesSkills entity)
+		{
+			this.SendPropertyChanging();
+			entity.Skills = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmployeesSkills")]
-	public partial class EmployeesSkills
+	public partial class EmployeesSkills : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _EmployeeID;
 		
 		private System.Nullable<int> _SkillID;
 		
+		private EntityRef<Employees> _Employees;
+		
+		private EntityRef<Skills> _Skills;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnSkillIDChanging(System.Nullable<int> value);
+    partial void OnSkillIDChanged();
+    #endregion
+		
 		public EmployeesSkills()
 		{
+			this._Employees = default(EntityRef<Employees>);
+			this._Skills = default(EntityRef<Skills>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int EmployeeID
 		{
 			get
@@ -501,12 +579,20 @@ namespace ITSkills
 			{
 				if ((this._EmployeeID != value))
 				{
+					if (this._Employees.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
 					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillID", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillID", DbType="Int", IsPrimaryKey=true)]
 		public System.Nullable<int> SkillID
 		{
 			get
@@ -517,8 +603,104 @@ namespace ITSkills
 			{
 				if ((this._SkillID != value))
 				{
+					if (this._Skills.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSkillIDChanging(value);
+					this.SendPropertyChanging();
 					this._SkillID = value;
+					this.SendPropertyChanged("SkillID");
+					this.OnSkillIDChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employees_EmployeesSkills", Storage="_Employees", ThisKey="EmployeeID", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Employees Employees
+		{
+			get
+			{
+				return this._Employees.Entity;
+			}
+			set
+			{
+				Employees previousValue = this._Employees.Entity;
+				if (((previousValue != value) 
+							|| (this._Employees.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employees.Entity = null;
+						previousValue.EmployeesSkills.Remove(this);
+					}
+					this._Employees.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeesSkills.Add(this);
+						this._EmployeeID = value.Id;
+					}
+					else
+					{
+						this._EmployeeID = default(int);
+					}
+					this.SendPropertyChanged("Employees");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Skills_EmployeesSkills", Storage="_Skills", ThisKey="SkillID", OtherKey="Id", IsForeignKey=true)]
+		public Skills Skills
+		{
+			get
+			{
+				return this._Skills.Entity;
+			}
+			set
+			{
+				Skills previousValue = this._Skills.Entity;
+				if (((previousValue != value) 
+							|| (this._Skills.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Skills.Entity = null;
+						previousValue.EmployeesSkills.Remove(this);
+					}
+					this._Skills.Entity = value;
+					if ((value != null))
+					{
+						value.EmployeesSkills.Add(this);
+						this._SkillID = value.Id;
+					}
+					else
+					{
+						this._SkillID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Skills");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

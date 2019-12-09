@@ -23,8 +23,8 @@
   </Table>
   <Table Name="dbo.EmployeesSkills" Member="EmployeesSkills">
     <Type Name="EmployeesSkills">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SkillID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SkillID" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
       <Association Name="Employees_EmployeesSkills" Member="Employees" ThisKey="EmployeeID" OtherKey="Id" Type="Employees" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Skills_EmployeesSkills" Member="Skills" ThisKey="SkillID" OtherKey="Id" Type="Skills" IsForeignKey="true" />
     </Type>
