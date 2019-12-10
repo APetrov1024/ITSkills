@@ -90,5 +90,11 @@ namespace ITSkills
             if (result == DialogResult.Yes)
                 DeleteEmloyee();
         }
+
+        private void SkillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SkillsForm skillsForm = new SkillsForm();
+            skillsForm.Show();
+        }
     }
 }

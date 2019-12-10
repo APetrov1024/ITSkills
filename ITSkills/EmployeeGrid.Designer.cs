@@ -35,6 +35,8 @@
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CatalogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SkillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addEmployeeStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteEmployeeToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -55,7 +57,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.операцииToolStripMenuItem});
+            this.операцииToolStripMenuItem,
+            this.CatalogsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(666, 24);
@@ -75,23 +78,38 @@
             // RefreshToolStripMenuItem
             // 
             this.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem";
-            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RefreshToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.RefreshToolStripMenuItem.Text = "Обновить";
             this.RefreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // EditToolStripMenuItem
             // 
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.EditToolStripMenuItem.Text = "Редактировать";
             this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // CatalogsToolStripMenuItem
+            // 
+            this.CatalogsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SkillsToolStripMenuItem});
+            this.CatalogsToolStripMenuItem.Name = "CatalogsToolStripMenuItem";
+            this.CatalogsToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.CatalogsToolStripMenuItem.Text = "Справочники";
+            // 
+            // SkillsToolStripMenuItem
+            // 
+            this.SkillsToolStripMenuItem.Name = "SkillsToolStripMenuItem";
+            this.SkillsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SkillsToolStripMenuItem.Text = "Навыки";
+            this.SkillsToolStripMenuItem.Click += new System.EventHandler(this.SkillsToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -156,6 +174,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addEmployeeStripButton;
         private System.Windows.Forms.ToolStripButton deleteEmployeeToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem CatalogsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SkillsToolStripMenuItem;
     }
 }
 
