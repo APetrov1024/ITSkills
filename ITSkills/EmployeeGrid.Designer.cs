@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesListForm));
             this.EmployeesGrid = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.addEmployeeStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteEmployeeToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // EmployeesGrid
@@ -53,7 +58,7 @@
             this.операцииToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(666, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -88,11 +93,43 @@
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addEmployeeStripButton,
+            this.deleteEmployeeToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(666, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // addEmployeeStripButton
+            // 
+            this.addEmployeeStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addEmployeeStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addEmployeeStripButton.Image")));
+            this.addEmployeeStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addEmployeeStripButton.Name = "addEmployeeStripButton";
+            this.addEmployeeStripButton.Size = new System.Drawing.Size(129, 22);
+            this.addEmployeeStripButton.Text = "Добавить сотрудника";
+            this.addEmployeeStripButton.Click += new System.EventHandler(this.addEmployeeStripButton_Click);
+            // 
+            // deleteEmployeeToolStripButton
+            // 
+            this.deleteEmployeeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.deleteEmployeeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteEmployeeToolStripButton.Image")));
+            this.deleteEmployeeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteEmployeeToolStripButton.Name = "deleteEmployeeToolStripButton";
+            this.deleteEmployeeToolStripButton.Size = new System.Drawing.Size(121, 22);
+            this.deleteEmployeeToolStripButton.Text = "Удалить сотрудника";
+            this.deleteEmployeeToolStripButton.Click += new System.EventHandler(this.deleteEmployeeToolStripButton_Click);
+            // 
             // EmployeesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(666, 393);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.EmployeesGrid);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -101,6 +138,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +153,9 @@
         private System.Windows.Forms.ToolStripMenuItem RefreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton addEmployeeStripButton;
+        private System.Windows.Forms.ToolStripButton deleteEmployeeToolStripButton;
     }
 }
 

@@ -112,7 +112,7 @@
             // 
             // BirthDateTimePicker
             // 
-            this.BirthDateTimePicker.Location = new System.Drawing.Point(109, 74);
+            this.BirthDateTimePicker.Location = new System.Drawing.Point(109, 71);
             this.BirthDateTimePicker.Name = "BirthDateTimePicker";
             this.BirthDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.BirthDateTimePicker.TabIndex = 7;
@@ -129,7 +129,7 @@
             // ProfessionComboBox
             // 
             this.ProfessionComboBox.FormattingEnabled = true;
-            this.ProfessionComboBox.Location = new System.Drawing.Point(404, 65);
+            this.ProfessionComboBox.Location = new System.Drawing.Point(403, 71);
             this.ProfessionComboBox.Name = "ProfessionComboBox";
             this.ProfessionComboBox.Size = new System.Drawing.Size(185, 21);
             this.ProfessionComboBox.TabIndex = 9;

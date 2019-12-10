@@ -36,6 +36,28 @@ namespace ITSkills
             EmployeesGrid.Columns[3].Visible = false;
         }
 
+        private void EditEmployee()
+        {
+            int employeeID = Convert.ToInt32(EmployeesGrid.Rows[EmployeesGrid.CurrentCell.RowIndex].Cells[3].Value);
+            EditForm editForm = new EditForm(employeeID);
+            editForm.Show();
+        }
+
+        private void AddEmployee()
+        {
+            AddEmployeeForm addEmployeeForm = new AddEmployeeForm();
+            addEmployeeForm.Show();
+        }
+
+        private void DeleteEmloyee()
+        {
+            int employeeID = Convert.ToInt32(EmployeesGrid.Rows[EmployeesGrid.CurrentCell.RowIndex].Cells[3].Value);
+            var dataContext = new ITSkillsDataContext();
+            var employee = dataContext.Employees.SingleOrDefault(e => e.Id == employeeID);
+            dataContext.Employees.DeleteOnSubmit(employee);
+            dataContext.SubmitChanges();
+        }
+
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FillEmployeeGrid();
@@ -48,10 +70,25 @@ namespace ITSkills
 
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int employeeID = Convert.ToInt32(EmployeesGrid.Rows[EmployeesGrid.CurrentCell.RowIndex].Cells[3].Value);
-            EditForm editForm = new EditForm(employeeID);
-            editForm.Show();
-            
+            EditEmployee();
+        }
+
+        private void addEmployeeStripButton_Click(object sender, EventArgs e)
+        {
+            AddEmployee();
+        }
+
+        private void deleteEmployeeToolStripButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Внимание! Данное действие безвозвратно удалит информацию о сотруднике и его навыках. Вы уверены, что хотите удалить сотрудника?",
+                "Предупреждение",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+            if (result == DialogResult.Yes)
+                DeleteEmloyee();
         }
     }
 }
