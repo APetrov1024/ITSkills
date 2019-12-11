@@ -96,5 +96,11 @@ namespace ITSkills
             SkillsForm skillsForm = new SkillsForm();
             skillsForm.Show();
         }
+
+        private void ProfessionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProfessionsForm professionsForm = new ProfessionsForm();
+            professionsForm.Show();
+        }
     }
 }

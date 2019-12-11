@@ -40,6 +40,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addEmployeeStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteEmployeeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ProfessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -99,7 +100,8 @@
             // CatalogsToolStripMenuItem
             // 
             this.CatalogsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SkillsToolStripMenuItem});
+            this.SkillsToolStripMenuItem,
+            this.ProfessionsToolStripMenuItem});
             this.CatalogsToolStripMenuItem.Name = "CatalogsToolStripMenuItem";
             this.CatalogsToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.CatalogsToolStripMenuItem.Text = "Справочники";
@@ -142,6 +144,13 @@
             this.deleteEmployeeToolStripButton.Text = "Удалить сотрудника";
             this.deleteEmployeeToolStripButton.Click += new System.EventHandler(this.deleteEmployeeToolStripButton_Click);
             // 
+            // ProfessionsToolStripMenuItem
+            // 
+            this.ProfessionsToolStripMenuItem.Name = "ProfessionsToolStripMenuItem";
+            this.ProfessionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ProfessionsToolStripMenuItem.Text = "Профессии";
+            this.ProfessionsToolStripMenuItem.Click += new System.EventHandler(this.ProfessionsToolStripMenuItem_Click);
+            // 
             // EmployeesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +185,7 @@
         private System.Windows.Forms.ToolStripButton deleteEmployeeToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem CatalogsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SkillsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProfessionsToolStripMenuItem;
     }
 }
 
