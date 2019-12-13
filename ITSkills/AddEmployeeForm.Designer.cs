@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.controlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.addButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.patronomycLabel = new System.Windows.Forms.Label();
@@ -42,15 +40,21 @@
             this.patronymicTextBox = new System.Windows.Forms.TextBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.professionComboBox = new System.Windows.Forms.ComboBox();
+            this.controlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.addButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataTableLayoutPanel.SuspendLayout();
             this.controlsTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataTableLayoutPanel
             // 
-            this.dataTableLayoutPanel.ColumnCount = 2;
+            this.dataTableLayoutPanel.ColumnCount = 3;
             this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.dataTableLayoutPanel.Controls.Add(this.nameLabel, 0, 0);
             this.dataTableLayoutPanel.Controls.Add(this.lastNameLabel, 0, 1);
             this.dataTableLayoutPanel.Controls.Add(this.patronomycLabel, 0, 2);
@@ -70,46 +74,8 @@
             this.dataTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.dataTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.dataTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dataTableLayoutPanel.Size = new System.Drawing.Size(541, 100);
+            this.dataTableLayoutPanel.Size = new System.Drawing.Size(551, 100);
             this.dataTableLayoutPanel.TabIndex = 0;
-            // 
-            // controlsTableLayoutPanel
-            // 
-            this.controlsTableLayoutPanel.ColumnCount = 2;
-            this.controlsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.controlsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.controlsTableLayoutPanel.Controls.Add(this.addButton, 0, 0);
-            this.controlsTableLayoutPanel.Controls.Add(this.cancelButton, 1, 0);
-            this.controlsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.controlsTableLayoutPanel.Location = new System.Drawing.Point(0, 111);
-            this.controlsTableLayoutPanel.Name = "controlsTableLayoutPanel";
-            this.controlsTableLayoutPanel.RowCount = 1;
-            this.controlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.controlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.controlsTableLayoutPanel.Size = new System.Drawing.Size(541, 27);
-            this.controlsTableLayoutPanel.TabIndex = 1;
-            // 
-            // addButton
-            // 
-            this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addButton.Location = new System.Drawing.Point(3, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(264, 21);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Добавить";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelButton.Location = new System.Drawing.Point(273, 3);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(265, 21);
-            this.cancelButton.TabIndex = 1;
-            this.cancelButton.Text = "Отмена";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // nameLabel
             // 
@@ -117,7 +83,7 @@
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nameLabel.Location = new System.Drawing.Point(3, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(264, 20);
+            this.nameLabel.Size = new System.Drawing.Size(259, 20);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Имя";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,7 +94,7 @@
             this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lastNameLabel.Location = new System.Drawing.Point(3, 20);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(264, 20);
+            this.lastNameLabel.Size = new System.Drawing.Size(259, 20);
             this.lastNameLabel.TabIndex = 1;
             this.lastNameLabel.Text = "Фамилия";
             this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,7 +105,7 @@
             this.patronomycLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patronomycLabel.Location = new System.Drawing.Point(3, 40);
             this.patronomycLabel.Name = "patronomycLabel";
-            this.patronomycLabel.Size = new System.Drawing.Size(264, 20);
+            this.patronomycLabel.Size = new System.Drawing.Size(259, 20);
             this.patronomycLabel.TabIndex = 2;
             this.patronomycLabel.Text = "Отчество";
             this.patronomycLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,7 +116,7 @@
             this.birthDateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.birthDateLabel.Location = new System.Drawing.Point(3, 60);
             this.birthDateLabel.Name = "birthDateLabel";
-            this.birthDateLabel.Size = new System.Drawing.Size(264, 20);
+            this.birthDateLabel.Size = new System.Drawing.Size(259, 20);
             this.birthDateLabel.TabIndex = 3;
             this.birthDateLabel.Text = "Дата рождения";
             this.birthDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,7 +127,7 @@
             this.professionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.professionLabel.Location = new System.Drawing.Point(3, 80);
             this.professionLabel.Name = "professionLabel";
-            this.professionLabel.Size = new System.Drawing.Size(264, 20);
+            this.professionLabel.Size = new System.Drawing.Size(259, 20);
             this.professionLabel.TabIndex = 4;
             this.professionLabel.Text = "Профессия";
             this.professionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,49 +135,91 @@
             // nameTextBox
             // 
             this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameTextBox.Location = new System.Drawing.Point(273, 3);
+            this.nameTextBox.Location = new System.Drawing.Point(268, 3);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(265, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(259, 20);
             this.nameTextBox.TabIndex = 5;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameTextBox.Location = new System.Drawing.Point(273, 23);
+            this.lastNameTextBox.Location = new System.Drawing.Point(268, 23);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(265, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(259, 20);
             this.lastNameTextBox.TabIndex = 6;
             // 
             // patronymicTextBox
             // 
             this.patronymicTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.patronymicTextBox.Location = new System.Drawing.Point(273, 43);
+            this.patronymicTextBox.Location = new System.Drawing.Point(268, 43);
             this.patronymicTextBox.Name = "patronymicTextBox";
-            this.patronymicTextBox.Size = new System.Drawing.Size(265, 20);
+            this.patronymicTextBox.Size = new System.Drawing.Size(259, 20);
             this.patronymicTextBox.TabIndex = 7;
             // 
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(273, 63);
+            this.birthDateTimePicker.Location = new System.Drawing.Point(268, 63);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(265, 20);
+            this.birthDateTimePicker.Size = new System.Drawing.Size(259, 20);
             this.birthDateTimePicker.TabIndex = 8;
             // 
             // professionComboBox
             // 
             this.professionComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.professionComboBox.FormattingEnabled = true;
-            this.professionComboBox.Location = new System.Drawing.Point(273, 83);
+            this.professionComboBox.Location = new System.Drawing.Point(268, 83);
             this.professionComboBox.Name = "professionComboBox";
-            this.professionComboBox.Size = new System.Drawing.Size(265, 21);
+            this.professionComboBox.Size = new System.Drawing.Size(259, 21);
             this.professionComboBox.TabIndex = 9;
+            // 
+            // controlsTableLayoutPanel
+            // 
+            this.controlsTableLayoutPanel.ColumnCount = 2;
+            this.controlsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.controlsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.controlsTableLayoutPanel.Controls.Add(this.addButton, 0, 0);
+            this.controlsTableLayoutPanel.Controls.Add(this.cancelButton, 1, 0);
+            this.controlsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.controlsTableLayoutPanel.Location = new System.Drawing.Point(0, 106);
+            this.controlsTableLayoutPanel.Name = "controlsTableLayoutPanel";
+            this.controlsTableLayoutPanel.RowCount = 1;
+            this.controlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.controlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.controlsTableLayoutPanel.Size = new System.Drawing.Size(551, 27);
+            this.controlsTableLayoutPanel.TabIndex = 1;
+            // 
+            // addButton
+            // 
+            this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addButton.Location = new System.Drawing.Point(3, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(269, 21);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelButton.Location = new System.Drawing.Point(278, 3);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(270, 21);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 138);
+            this.ClientSize = new System.Drawing.Size(551, 133);
             this.Controls.Add(this.controlsTableLayoutPanel);
             this.Controls.Add(this.dataTableLayoutPanel);
             this.Name = "AddEmployeeForm";
@@ -219,6 +227,7 @@
             this.dataTableLayoutPanel.ResumeLayout(false);
             this.dataTableLayoutPanel.PerformLayout();
             this.controlsTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +248,6 @@
         private System.Windows.Forms.TextBox patronymicTextBox;
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.ComboBox professionComboBox;
+        internal System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

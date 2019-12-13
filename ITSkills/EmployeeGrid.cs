@@ -39,7 +39,7 @@ namespace ITSkills
         private void EditEmployee()
         {
             int employeeID = Convert.ToInt32(EmployeesGrid.Rows[EmployeesGrid.CurrentCell.RowIndex].Cells[3].Value);
-            EditForm editForm = new EditForm(employeeID);
+            editForm editForm = new editForm(employeeID);
             editForm.Show();
         }
 

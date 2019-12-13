@@ -65,6 +65,7 @@
     <Compile Include="EmployeeGrid.Designer.cs">
       <DependentUpon>EmployeeGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormValidator.cs" />
     <Compile Include="InputDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,18 +10,24 @@ using System.Windows.Forms;
 
 namespace ITSkills
 {
-    public partial class EditForm : Form
+    public partial class editForm : Form
     {
         private int employeeID;
-        public EditForm()
+        public editForm()
         {
             InitializeComponent();
+            nameTextBox.Validating += nameTextBox_Validating;
+            lastNameTextBox.Validating += lastNameTextBox_Validating;
+            professionComboBox.Validating += professionComboBox_Validating;
         }
 
-        public EditForm(int employeeID)
+        public editForm(int employeeID)
         {
             this.employeeID = employeeID;
             InitializeComponent();
+            nameTextBox.Validating += nameTextBox_Validating;
+            lastNameTextBox.Validating += lastNameTextBox_Validating;
+            professionComboBox.Validating += professionComboBox_Validating;
             RefreshFormData();
         }
 
@@ -40,7 +46,7 @@ namespace ITSkills
                               select p.Profession.ToString();
             foreach (string profession in professions)
             {
-                ProfessionComboBox.Items.Add(profession);
+                professionComboBox.Items.Add(profession);
             };
         }
         private void FillInformation()
@@ -58,11 +64,11 @@ namespace ITSkills
                                 Profession = p.Profession.ToString()
                             };
             var employee = employees.First();
-            NameTextBox.Text = employee.Name;
-            LastNameTextBox.Text = employee.LastName;
-            PatronymicTextBox.Text = employee.Patronymic;
-            BirthDateTimePicker.Value = employee.BirthDate;
-            ProfessionComboBox.SelectedItem = employee.Profession;
+            nameTextBox.Text = employee.Name;
+            lastNameTextBox.Text = employee.LastName;
+            patronymicTextBox.Text = employee.Patronymic;
+            birthDateTimePicker.Value = employee.BirthDate;
+            professionComboBox.SelectedItem = employee.Profession;
         }
 
         private void FillEmployeeSkillsList()
@@ -74,7 +80,7 @@ namespace ITSkills
                          select s.Skill;
             foreach (string skill in skills)
             {
-                EmployeeSkillsListBox.Items.Add(skill);
+                employeeSkillsListBox.Items.Add(skill);
             }
         }
 
@@ -91,38 +97,38 @@ namespace ITSkills
                                  select s.Skill;
             foreach (string skill in allSkills.Except<string>(employeeSkills))
             {
-                ProfessionSkillsListBox.Items.Add(skill);
+                professionSkillsListBox.Items.Add(skill);
             }
         }
 
         private void AddSkillButton_Click(object sender, EventArgs e)
         {
-            string skill = ProfessionSkillsListBox.SelectedItem.ToString();
-            ProfessionSkillsListBox.Items.Remove(skill);
-            EmployeeSkillsListBox.Items.Add(skill);
+            string skill = professionSkillsListBox.SelectedItem.ToString();
+            professionSkillsListBox.Items.Remove(skill);
+            employeeSkillsListBox.Items.Add(skill);
         }
 
         private void removeSkillButton_Click(object sender, EventArgs e)
         {
-            string skill = EmployeeSkillsListBox.SelectedItem.ToString();
-            EmployeeSkillsListBox.Items.Remove(skill);
-            ProfessionSkillsListBox.Items.Add(skill);
+            string skill = employeeSkillsListBox.SelectedItem.ToString();
+            employeeSkillsListBox.Items.Remove(skill);
+            professionSkillsListBox.Items.Add(skill);
         }
 
         private void saveToDB()
         {
             var dataContext = new ITSkillsDataContext();
             var employee = dataContext.Employees.SingleOrDefault(e => e.Id == this.employeeID);
-            employee.Name = NameTextBox.Text;
-            employee.LastName = LastNameTextBox.Text;
-            if (PatronymicTextBox.Text == "")
+            employee.Name = nameTextBox.Text;
+            employee.LastName = lastNameTextBox.Text;
+            if (patronymicTextBox.Text == "")
                 employee.Patronymic = null;
             else
-                employee.Patronymic = PatronymicTextBox.Text;
-            employee.DateOfBirth = BirthDateTimePicker.Value;
-            string newProfession = ProfessionComboBox.SelectedItem.ToString();
+                employee.Patronymic = patronymicTextBox.Text;
+            employee.DateOfBirth = birthDateTimePicker.Value;
+            string newProfession = professionComboBox.SelectedItem.ToString();
             employee.ProfessionID = dataContext.Professions.SingleOrDefault(p => p.Profession == newProfession).Id;
-            foreach (string skill in EmployeeSkillsListBox.Items)
+            foreach (string skill in employeeSkillsListBox.Items)
             {
                 EmployeesSkills employeeSkill = new EmployeesSkills();
                 employeeSkill.EmployeeID = this.employeeID;
@@ -146,7 +152,32 @@ namespace ITSkills
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveToDB();
+            this.ValidateChildren();
+            if (FormValidator.IsValidated(this, errorProvider1))
+                saveToDB();
+        }
+
+
+        private void nameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(nameTextBox.Text))
+                errorProvider1.SetError(nameTextBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(nameTextBox, null);
+        }
+        private void lastNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(lastNameTextBox.Text))
+                errorProvider1.SetError(lastNameTextBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(lastNameTextBox, null);
+        }
+        private void professionComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(professionComboBox.Text))
+                errorProvider1.SetError(professionComboBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(professionComboBox, null);
         }
     }
 }

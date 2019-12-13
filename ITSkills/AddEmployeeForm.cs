@@ -16,6 +16,9 @@ namespace ITSkills
         {
             InitializeComponent();
             initProfessionList();
+            nameTextBox.Validating += nameTextBox_Validating;
+            lastNameTextBox.Validating += lastNameTextBox_Validating;
+            professionComboBox.Validating += professionComboBox_Validating;
         }
 
         private void initProfessionList()
@@ -28,22 +31,11 @@ namespace ITSkills
                 professionComboBox.Items.Add(profession);
             };
         }
-        private bool Validation()
-        {
-            string fieldName = "";
-            if (nameTextBox.Text == "") fieldName = "имя";
-            if (lastNameTextBox.Text == "") fieldName = "фамилия";
-            if (professionComboBox.SelectedValue is null) fieldName = "профессия";
-            if (fieldName != "")
-            {
-                MessageBox.Show("Поле " + fieldName + " не может быть пустым", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
+       
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (Validation())
+            this.ValidateChildren();
+            if (FormValidator.IsValidated(this, errorProvider1))
             {
                 var dataContext = new ITSkillsDataContext();
                 Employees employee = new Employees();
@@ -65,6 +57,28 @@ namespace ITSkills
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void nameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(nameTextBox.Text))
+                errorProvider1.SetError(nameTextBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(nameTextBox, null);
+        }
+        private void lastNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(lastNameTextBox.Text))
+                errorProvider1.SetError(lastNameTextBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(lastNameTextBox, null);
+        }
+        private void professionComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(professionComboBox.Text))
+                errorProvider1.SetError(professionComboBox, "Это поле обязательно к заполнению");
+            else
+                errorProvider1.SetError(professionComboBox, null);
         }
     }
 }
