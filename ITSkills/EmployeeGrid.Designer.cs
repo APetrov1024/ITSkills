@@ -55,7 +55,7 @@
             this.EmployeesGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmployeesGrid.Location = new System.Drawing.Point(0, 0);
             this.EmployeesGrid.Name = "EmployeesGrid";
-            this.EmployeesGrid.Size = new System.Drawing.Size(620, 346);
+            this.EmployeesGrid.Size = new System.Drawing.Size(624, 392);
             this.EmployeesGrid.TabIndex = 0;
             this.EmployeesGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.EmployeesGrid_MouseDoubleClick);
             // 
@@ -66,7 +66,7 @@
             this.CatalogsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(620, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(624, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,7 +131,7 @@
             this.deleteEmployeeToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(620, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(624, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -161,18 +161,19 @@
             this.dataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataPanel.Location = new System.Drawing.Point(0, 49);
             this.dataPanel.Name = "dataPanel";
-            this.dataPanel.Size = new System.Drawing.Size(620, 346);
+            this.dataPanel.Size = new System.Drawing.Size(624, 392);
             this.dataPanel.TabIndex = 3;
             // 
             // EmployeesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 395);
+            this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.dataPanel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "EmployeesListForm";
             this.Text = "ITSkills";
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).EndInit();
