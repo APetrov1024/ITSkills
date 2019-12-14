@@ -222,6 +222,8 @@
             this.ClientSize = new System.Drawing.Size(551, 133);
             this.Controls.Add(this.controlsTableLayoutPanel);
             this.Controls.Add(this.dataTableLayoutPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddEmployeeForm";
             this.Text = "Создание сотрудника";
             this.dataTableLayoutPanel.ResumeLayout(false);
