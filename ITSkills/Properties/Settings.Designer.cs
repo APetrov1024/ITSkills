@@ -26,7 +26,7 @@ namespace ITSkills.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-V2PRUR7;Initial Catalog=ITSkillsDB;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-T8AD676;Initial Catalog=ITSkillsDB;Integrated Security=True")]
         public string ITSkillsDBConnectionString {
             get {
                 return ((string)(this["ITSkillsDBConnectionString"]));

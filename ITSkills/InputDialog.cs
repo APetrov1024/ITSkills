@@ -19,10 +19,11 @@ namespace ITSkills
             InitializeComponent();
         }
 
-        public static string Show(string inputDialogText)
+        public static string Show(string inputDialogText, string caption)
         {
             newInputDialog = new InputDialog();
             newInputDialog.messageLabel.Text = inputDialogText;
+            newInputDialog.Text = caption;
             newInputDialog.ShowDialog();
             return returnString;
         }

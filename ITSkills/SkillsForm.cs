@@ -48,7 +48,7 @@ namespace ITSkills
 
         private void AddSkill()
         {
-            string newSkillName = InputDialog.Show("Введите название навыка");
+            string newSkillName = InputDialog.Show("Введите название навыка", "Создание навыка");
             if (newSkillName != "")
             {
                 ITSkillsDataContext dataContext = new ITSkillsDataContext();
