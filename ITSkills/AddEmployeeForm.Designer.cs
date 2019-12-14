@@ -223,7 +223,7 @@
             this.Controls.Add(this.controlsTableLayoutPanel);
             this.Controls.Add(this.dataTableLayoutPanel);
             this.Name = "AddEmployeeForm";
-            this.Text = "AddEmployeeForm";
+            this.Text = "Создание сотрудника";
             this.dataTableLayoutPanel.ResumeLayout(false);
             this.dataTableLayoutPanel.PerformLayout();
             this.controlsTableLayoutPanel.ResumeLayout(false);

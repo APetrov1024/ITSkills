@@ -49,7 +49,7 @@ namespace ITSkills
         private void AddSkill()
         {
             string newSkillName = InputDialog.Show("Введите название навыка", "Создание навыка");
-            if (newSkillName != "")
+            if (!String.IsNullOrWhiteSpace(newSkillName))
             {
                 ITSkillsDataContext dataContext = new ITSkillsDataContext();
                 string profession = professionsListBox.SelectedItem.ToString();

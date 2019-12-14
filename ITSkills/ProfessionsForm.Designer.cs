@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfessionsForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.professionsListBox = new System.Windows.Forms.ListBox();
             this.addProfessionToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.professionsListBox = new System.Windows.Forms.ListBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,15 +46,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(405, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // professionsListBox
-            // 
-            this.professionsListBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.professionsListBox.FormattingEnabled = true;
-            this.professionsListBox.Location = new System.Drawing.Point(0, 32);
-            this.professionsListBox.Name = "professionsListBox";
-            this.professionsListBox.Size = new System.Drawing.Size(405, 329);
-            this.professionsListBox.TabIndex = 1;
             // 
             // addProfessionToolStripButton
             // 
@@ -76,6 +67,15 @@
             this.deleteToolStripButton.Text = "Удалить профессию";
             this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
+            // professionsListBox
+            // 
+            this.professionsListBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.professionsListBox.FormattingEnabled = true;
+            this.professionsListBox.Location = new System.Drawing.Point(0, 32);
+            this.professionsListBox.Name = "professionsListBox";
+            this.professionsListBox.Size = new System.Drawing.Size(405, 329);
+            this.professionsListBox.TabIndex = 1;
+            // 
             // ProfessionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,7 +84,7 @@
             this.Controls.Add(this.professionsListBox);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ProfessionsForm";
-            this.Text = "ProfessionsForm";
+            this.Text = "Справочник профессий";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

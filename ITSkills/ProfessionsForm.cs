@@ -34,7 +34,7 @@ namespace ITSkills
         private void AddProfession()
         {
             string newProfessionName = InputDialog.Show("Введите название профессии", "Создание профессии");
-            if (newProfessionName != "")
+            if (!String.IsNullOrWhiteSpace(newProfessionName))
             {
                 ITSkillsDataContext dataContext = new ITSkillsDataContext();
                 var alreadyInDB = from p in dataContext.Professions

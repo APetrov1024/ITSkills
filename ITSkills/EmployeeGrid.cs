@@ -102,5 +102,10 @@ namespace ITSkills
             ProfessionsForm professionsForm = new ProfessionsForm();
             professionsForm.Show();
         }
+
+        private void EmployeesGrid_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditEmployee();
+        }
     }
 }

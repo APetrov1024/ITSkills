@@ -37,10 +37,10 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CatalogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SkillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProfessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addEmployeeStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteEmployeeToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ProfessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,6 +54,7 @@
             this.EmployeesGrid.Name = "EmployeesGrid";
             this.EmployeesGrid.Size = new System.Drawing.Size(654, 352);
             this.EmployeesGrid.TabIndex = 0;
+            this.EmployeesGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.EmployeesGrid_MouseDoubleClick);
             // 
             // menuStrip1
             // 
@@ -109,9 +110,16 @@
             // SkillsToolStripMenuItem
             // 
             this.SkillsToolStripMenuItem.Name = "SkillsToolStripMenuItem";
-            this.SkillsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SkillsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.SkillsToolStripMenuItem.Text = "Навыки";
             this.SkillsToolStripMenuItem.Click += new System.EventHandler(this.SkillsToolStripMenuItem_Click);
+            // 
+            // ProfessionsToolStripMenuItem
+            // 
+            this.ProfessionsToolStripMenuItem.Name = "ProfessionsToolStripMenuItem";
+            this.ProfessionsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.ProfessionsToolStripMenuItem.Text = "Профессии";
+            this.ProfessionsToolStripMenuItem.Click += new System.EventHandler(this.ProfessionsToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -143,13 +151,6 @@
             this.deleteEmployeeToolStripButton.Size = new System.Drawing.Size(121, 22);
             this.deleteEmployeeToolStripButton.Text = "Удалить сотрудника";
             this.deleteEmployeeToolStripButton.Click += new System.EventHandler(this.deleteEmployeeToolStripButton_Click);
-            // 
-            // ProfessionsToolStripMenuItem
-            // 
-            this.ProfessionsToolStripMenuItem.Name = "ProfessionsToolStripMenuItem";
-            this.ProfessionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ProfessionsToolStripMenuItem.Text = "Профессии";
-            this.ProfessionsToolStripMenuItem.Click += new System.EventHandler(this.ProfessionsToolStripMenuItem_Click);
             // 
             // EmployeesListForm
             // 

@@ -211,7 +211,7 @@
             this.operationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(794, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -246,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 477);
+            this.ClientSize = new System.Drawing.Size(794, 441);
             this.Controls.Add(this.SkillsTableLayoutPanel);
             this.Controls.Add(this.professionComboBox);
             this.Controls.Add(this.ProfessionLabel);
@@ -261,7 +261,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "editForm";
-            this.Text = "EditForm";
+            this.Text = "Редактирование информации о сотруднике";
             this.SkillsTableLayoutPanel.ResumeLayout(false);
             this.skillsControlTableLayoutPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
