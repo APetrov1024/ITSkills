@@ -41,18 +41,21 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addEmployeeStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteEmployeeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.dataPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.dataPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EmployeesGrid
             // 
             this.EmployeesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.EmployeesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EmployeesGrid.Location = new System.Drawing.Point(12, 27);
+            this.EmployeesGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EmployeesGrid.Location = new System.Drawing.Point(0, 0);
             this.EmployeesGrid.Name = "EmployeesGrid";
-            this.EmployeesGrid.Size = new System.Drawing.Size(654, 352);
+            this.EmployeesGrid.Size = new System.Drawing.Size(620, 346);
             this.EmployeesGrid.TabIndex = 0;
             this.EmployeesGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.EmployeesGrid_MouseDoubleClick);
             // 
@@ -63,7 +66,7 @@
             this.CatalogsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(666, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(620, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -128,7 +131,7 @@
             this.deleteEmployeeToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(666, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(620, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -152,13 +155,22 @@
             this.deleteEmployeeToolStripButton.Text = "Удалить сотрудника";
             this.deleteEmployeeToolStripButton.Click += new System.EventHandler(this.deleteEmployeeToolStripButton_Click);
             // 
+            // dataPanel
+            // 
+            this.dataPanel.Controls.Add(this.EmployeesGrid);
+            this.dataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataPanel.Location = new System.Drawing.Point(0, 49);
+            this.dataPanel.Name = "dataPanel";
+            this.dataPanel.Size = new System.Drawing.Size(620, 346);
+            this.dataPanel.TabIndex = 3;
+            // 
             // EmployeesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 393);
+            this.ClientSize = new System.Drawing.Size(620, 395);
+            this.Controls.Add(this.dataPanel);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.EmployeesGrid);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "EmployeesListForm";
@@ -168,6 +180,7 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.dataPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,6 +200,7 @@
         private System.Windows.Forms.ToolStripMenuItem CatalogsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SkillsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProfessionsToolStripMenuItem;
+        private System.Windows.Forms.Panel dataPanel;
     }
 }
 
