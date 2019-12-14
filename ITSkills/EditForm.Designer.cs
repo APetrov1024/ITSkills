@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editForm));
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -39,119 +40,137 @@
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ProfessionLabel = new System.Windows.Forms.Label();
             this.professionComboBox = new System.Windows.Forms.ComboBox();
-            this.SkillsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.skillsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.professionSkillsListBox = new System.Windows.Forms.ListBox();
             this.employeeSkillsListBox = new System.Windows.Forms.ListBox();
             this.skillsControlTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addSkillButton = new System.Windows.Forms.Button();
             this.removeSkillButton = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.operationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.SkillsTableLayoutPanel.SuspendLayout();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.informationTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.basementTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.skillsTableLayoutPanel.SuspendLayout();
             this.skillsControlTableLayoutPanel.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.informationTableLayoutPanel.SuspendLayout();
+            this.basementTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(17, 35);
+            this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nameLabel.Location = new System.Drawing.Point(3, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(29, 13);
+            this.nameLabel.Size = new System.Drawing.Size(180, 25);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Имя";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(52, 32);
+            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nameTextBox.Location = new System.Drawing.Point(189, 3);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(179, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(180, 20);
             this.nameTextBox.TabIndex = 1;
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(301, 32);
+            this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastNameTextBox.Location = new System.Drawing.Point(189, 28);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(179, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(180, 20);
             this.lastNameTextBox.TabIndex = 3;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(239, 36);
+            this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastNameLabel.Location = new System.Drawing.Point(3, 25);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(56, 13);
+            this.lastNameLabel.Size = new System.Drawing.Size(180, 25);
             this.lastNameLabel.TabIndex = 2;
             this.lastNameLabel.Text = "Фамилия";
+            this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // patronymicTextBox
             // 
-            this.patronymicTextBox.Location = new System.Drawing.Point(550, 32);
+            this.patronymicTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patronymicTextBox.Location = new System.Drawing.Point(189, 53);
             this.patronymicTextBox.Name = "patronymicTextBox";
-            this.patronymicTextBox.Size = new System.Drawing.Size(179, 20);
+            this.patronymicTextBox.Size = new System.Drawing.Size(180, 20);
             this.patronymicTextBox.TabIndex = 5;
             // 
             // PatronymicLabel
             // 
             this.PatronymicLabel.AutoSize = true;
-            this.PatronymicLabel.Location = new System.Drawing.Point(490, 36);
+            this.PatronymicLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PatronymicLabel.Location = new System.Drawing.Point(3, 50);
             this.PatronymicLabel.Name = "PatronymicLabel";
-            this.PatronymicLabel.Size = new System.Drawing.Size(54, 13);
+            this.PatronymicLabel.Size = new System.Drawing.Size(180, 25);
             this.PatronymicLabel.TabIndex = 4;
             this.PatronymicLabel.Text = "Отчество";
+            this.PatronymicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BirthDateLabel
             // 
             this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(17, 74);
+            this.BirthDateLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BirthDateLabel.Location = new System.Drawing.Point(3, 75);
             this.BirthDateLabel.Name = "BirthDateLabel";
-            this.BirthDateLabel.Size = new System.Drawing.Size(86, 13);
+            this.BirthDateLabel.Size = new System.Drawing.Size(180, 25);
             this.BirthDateLabel.TabIndex = 6;
             this.BirthDateLabel.Text = "Дата рождения";
+            this.BirthDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // birthDateTimePicker
             // 
-            this.birthDateTimePicker.Location = new System.Drawing.Point(109, 71);
+            this.birthDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.birthDateTimePicker.Location = new System.Drawing.Point(189, 78);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.birthDateTimePicker.Size = new System.Drawing.Size(180, 20);
             this.birthDateTimePicker.TabIndex = 7;
             // 
             // ProfessionLabel
             // 
             this.ProfessionLabel.AutoSize = true;
-            this.ProfessionLabel.Location = new System.Drawing.Point(332, 74);
+            this.ProfessionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfessionLabel.Location = new System.Drawing.Point(3, 100);
             this.ProfessionLabel.Name = "ProfessionLabel";
-            this.ProfessionLabel.Size = new System.Drawing.Size(65, 13);
+            this.ProfessionLabel.Size = new System.Drawing.Size(180, 29);
             this.ProfessionLabel.TabIndex = 8;
             this.ProfessionLabel.Text = "Профессия";
+            this.ProfessionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // professionComboBox
             // 
+            this.professionComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.professionComboBox.FormattingEnabled = true;
-            this.professionComboBox.Location = new System.Drawing.Point(403, 71);
+            this.professionComboBox.Location = new System.Drawing.Point(189, 103);
             this.professionComboBox.Name = "professionComboBox";
-            this.professionComboBox.Size = new System.Drawing.Size(185, 21);
+            this.professionComboBox.Size = new System.Drawing.Size(180, 21);
             this.professionComboBox.TabIndex = 9;
             // 
-            // SkillsTableLayoutPanel
+            // skillsTableLayoutPanel
             // 
-            this.SkillsTableLayoutPanel.ColumnCount = 3;
-            this.SkillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.SkillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.SkillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.SkillsTableLayoutPanel.Controls.Add(this.professionSkillsListBox, 0, 0);
-            this.SkillsTableLayoutPanel.Controls.Add(this.employeeSkillsListBox, 2, 0);
-            this.SkillsTableLayoutPanel.Controls.Add(this.skillsControlTableLayoutPanel, 1, 0);
-            this.SkillsTableLayoutPanel.Location = new System.Drawing.Point(16, 103);
-            this.SkillsTableLayoutPanel.Name = "SkillsTableLayoutPanel";
-            this.SkillsTableLayoutPanel.RowCount = 1;
-            this.SkillsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SkillsTableLayoutPanel.Size = new System.Drawing.Size(772, 335);
-            this.SkillsTableLayoutPanel.TabIndex = 10;
+            this.skillsTableLayoutPanel.ColumnCount = 3;
+            this.skillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.skillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.skillsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.skillsTableLayoutPanel.Controls.Add(this.professionSkillsListBox, 0, 0);
+            this.skillsTableLayoutPanel.Controls.Add(this.employeeSkillsListBox, 2, 0);
+            this.skillsTableLayoutPanel.Controls.Add(this.skillsControlTableLayoutPanel, 1, 0);
+            this.skillsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skillsTableLayoutPanel.Location = new System.Drawing.Point(3, 138);
+            this.skillsTableLayoutPanel.Name = "skillsTableLayoutPanel";
+            this.skillsTableLayoutPanel.RowCount = 1;
+            this.skillsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.skillsTableLayoutPanel.Size = new System.Drawing.Size(392, 348);
+            this.skillsTableLayoutPanel.TabIndex = 10;
             // 
             // professionSkillsListBox
             // 
@@ -159,7 +178,7 @@
             this.professionSkillsListBox.FormattingEnabled = true;
             this.professionSkillsListBox.Location = new System.Drawing.Point(3, 3);
             this.professionSkillsListBox.Name = "professionSkillsListBox";
-            this.professionSkillsListBox.Size = new System.Drawing.Size(120, 329);
+            this.professionSkillsListBox.Size = new System.Drawing.Size(120, 342);
             this.professionSkillsListBox.TabIndex = 0;
             // 
             // employeeSkillsListBox
@@ -168,7 +187,7 @@
             this.employeeSkillsListBox.FormattingEnabled = true;
             this.employeeSkillsListBox.Location = new System.Drawing.Point(159, 3);
             this.employeeSkillsListBox.Name = "employeeSkillsListBox";
-            this.employeeSkillsListBox.Size = new System.Drawing.Size(610, 329);
+            this.employeeSkillsListBox.Size = new System.Drawing.Size(348, 342);
             this.employeeSkillsListBox.TabIndex = 1;
             // 
             // skillsControlTableLayoutPanel
@@ -205,68 +224,92 @@
             this.removeSkillButton.UseVisualStyleBackColor = true;
             this.removeSkillButton.Click += new System.EventHandler(this.removeSkillButton_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.operationsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(794, 24);
-            this.menuStrip1.TabIndex = 11;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // operationsToolStripMenuItem
-            // 
-            this.operationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.closeToolStripMenuItem});
-            this.operationsToolStripMenuItem.Name = "operationsToolStripMenuItem";
-            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.operationsToolStripMenuItem.Text = "Операции";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.saveToolStripMenuItem.Text = "Сохранить изменения";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.closeToolStripMenuItem.Text = "Закрыть";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(398, 25);
+            this.toolStrip1.TabIndex = 11;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(132, 22);
+            this.saveToolStripButton.Text = "Сохранить изменения";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
+            // 
+            // informationTableLayoutPanel
+            // 
+            this.informationTableLayoutPanel.ColumnCount = 3;
+            this.informationTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.informationTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.informationTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.informationTableLayoutPanel.Controls.Add(this.nameLabel, 0, 0);
+            this.informationTableLayoutPanel.Controls.Add(this.nameTextBox, 1, 0);
+            this.informationTableLayoutPanel.Controls.Add(this.lastNameLabel, 0, 1);
+            this.informationTableLayoutPanel.Controls.Add(this.professionComboBox, 1, 4);
+            this.informationTableLayoutPanel.Controls.Add(this.lastNameTextBox, 1, 1);
+            this.informationTableLayoutPanel.Controls.Add(this.ProfessionLabel, 0, 4);
+            this.informationTableLayoutPanel.Controls.Add(this.PatronymicLabel, 0, 2);
+            this.informationTableLayoutPanel.Controls.Add(this.birthDateTimePicker, 1, 3);
+            this.informationTableLayoutPanel.Controls.Add(this.patronymicTextBox, 1, 2);
+            this.informationTableLayoutPanel.Controls.Add(this.BirthDateLabel, 0, 3);
+            this.informationTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.informationTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.informationTableLayoutPanel.Name = "informationTableLayoutPanel";
+            this.informationTableLayoutPanel.RowCount = 5;
+            this.informationTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.informationTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.informationTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.informationTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.informationTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.informationTableLayoutPanel.Size = new System.Drawing.Size(392, 129);
+            this.informationTableLayoutPanel.TabIndex = 12;
+            // 
+            // basementTableLayoutPanel
+            // 
+            this.basementTableLayoutPanel.ColumnCount = 1;
+            this.basementTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.basementTableLayoutPanel.Controls.Add(this.informationTableLayoutPanel, 0, 0);
+            this.basementTableLayoutPanel.Controls.Add(this.skillsTableLayoutPanel, 0, 1);
+            this.basementTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.basementTableLayoutPanel.Location = new System.Drawing.Point(0, 25);
+            this.basementTableLayoutPanel.Name = "basementTableLayoutPanel";
+            this.basementTableLayoutPanel.RowCount = 2;
+            this.basementTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.basementTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.basementTableLayoutPanel.Size = new System.Drawing.Size(398, 487);
+            this.basementTableLayoutPanel.TabIndex = 13;
             // 
             // editForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 441);
-            this.Controls.Add(this.SkillsTableLayoutPanel);
-            this.Controls.Add(this.professionComboBox);
-            this.Controls.Add(this.ProfessionLabel);
-            this.Controls.Add(this.birthDateTimePicker);
-            this.Controls.Add(this.BirthDateLabel);
-            this.Controls.Add(this.patronymicTextBox);
-            this.Controls.Add(this.PatronymicLabel);
-            this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.nameTextBox);
-            this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(398, 512);
+            this.Controls.Add(this.basementTableLayoutPanel);
+            this.Controls.Add(this.toolStrip1);
+            this.MinimumSize = new System.Drawing.Size(414, 551);
             this.Name = "editForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Редактирование информации о сотруднике";
-            this.SkillsTableLayoutPanel.ResumeLayout(false);
+            this.skillsTableLayoutPanel.ResumeLayout(false);
             this.skillsControlTableLayoutPanel.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.informationTableLayoutPanel.ResumeLayout(false);
+            this.informationTableLayoutPanel.PerformLayout();
+            this.basementTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,16 +327,16 @@
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.Label ProfessionLabel;
         private System.Windows.Forms.ComboBox professionComboBox;
-        private System.Windows.Forms.TableLayoutPanel SkillsTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel skillsTableLayoutPanel;
         private System.Windows.Forms.ListBox professionSkillsListBox;
         private System.Windows.Forms.ListBox employeeSkillsListBox;
         private System.Windows.Forms.TableLayoutPanel skillsControlTableLayoutPanel;
         private System.Windows.Forms.Button addSkillButton;
         private System.Windows.Forms.Button removeSkillButton;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem operationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.TableLayoutPanel informationTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel basementTableLayoutPanel;
     }
 }

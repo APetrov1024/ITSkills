@@ -145,19 +145,6 @@ namespace ITSkills
             dataContext.SubmitChanges();
         }
 
-        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.ValidateChildren();
-            if (FormValidator.IsValidated(this, errorProvider1))
-                saveToDB();
-        }
-
-
         private void nameTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrWhiteSpace(nameTextBox.Text))
@@ -178,6 +165,13 @@ namespace ITSkills
                 errorProvider1.SetError(professionComboBox, "Это поле обязательно к заполнению");
             else
                 errorProvider1.SetError(professionComboBox, null);
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.ValidateChildren();
+            if (FormValidator.IsValidated(this, errorProvider1))
+                saveToDB();
         }
     }
 }
