@@ -7,7 +7,7 @@ VALUES
 ('UI Desigber')
 GO
 
-INSERT INTO Skilla
+INSERT INTO Skills
 VALUES
 ('C++', 1),
 ('C#', 1),
@@ -20,9 +20,9 @@ GO
 
 INSERT INTO Employees
 VALUES
-('John', 'Smith', NULL, 1980-12-10, 1),
-('Mary', 'Johnson', NULL, 1981-03-05, 2),
-('Alex', 'Johnson', NULL, 1980-04-25, 1)
+('John', 'Smith', NULL, '1980-12-10', 1),
+('Mary', 'Johnson', NULL, '1981-03-05', 2),
+('Alex', 'Johnson', NULL, '1980-04-25', 1)
 GO
 
 INSERT INTO EmployeesSkills

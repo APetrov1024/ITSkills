@@ -1,3 +1,6 @@
+CREATE DATABASE ITSkillsDB
+GO
+
 USE ITSkillsDB
 GO
 
