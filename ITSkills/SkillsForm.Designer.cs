@@ -49,7 +49,7 @@
             this.DeleteSkillToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(583, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(344, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -87,8 +87,8 @@
             // skillsSplitContainer.Panel2
             // 
             this.skillsSplitContainer.Panel2.Controls.Add(this.skillsListBox);
-            this.skillsSplitContainer.Size = new System.Drawing.Size(583, 373);
-            this.skillsSplitContainer.SplitterDistance = 171;
+            this.skillsSplitContainer.Size = new System.Drawing.Size(344, 296);
+            this.skillsSplitContainer.SplitterDistance = 100;
             this.skillsSplitContainer.TabIndex = 1;
             // 
             // professionsListBox
@@ -97,7 +97,7 @@
             this.professionsListBox.FormattingEnabled = true;
             this.professionsListBox.Location = new System.Drawing.Point(0, 0);
             this.professionsListBox.Name = "professionsListBox";
-            this.professionsListBox.Size = new System.Drawing.Size(171, 373);
+            this.professionsListBox.Size = new System.Drawing.Size(100, 296);
             this.professionsListBox.TabIndex = 0;
             this.professionsListBox.SelectedIndexChanged += new System.EventHandler(this.professionsListBox_SelectedIndexChanged);
             // 
@@ -107,16 +107,17 @@
             this.skillsListBox.FormattingEnabled = true;
             this.skillsListBox.Location = new System.Drawing.Point(0, 0);
             this.skillsListBox.Name = "skillsListBox";
-            this.skillsListBox.Size = new System.Drawing.Size(408, 373);
+            this.skillsListBox.Size = new System.Drawing.Size(240, 296);
             this.skillsListBox.TabIndex = 0;
             // 
             // SkillsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 398);
+            this.ClientSize = new System.Drawing.Size(344, 321);
             this.Controls.Add(this.skillsSplitContainer);
             this.Controls.Add(this.toolStrip1);
+            this.MinimumSize = new System.Drawing.Size(360, 360);
             this.Name = "SkillsForm";
             this.Text = "Справочник навыков";
             this.toolStrip1.ResumeLayout(false);
