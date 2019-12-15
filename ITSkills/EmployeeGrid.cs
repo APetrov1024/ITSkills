@@ -40,13 +40,15 @@ namespace ITSkills
         {
             int employeeID = Convert.ToInt32(EmployeesGrid.Rows[EmployeesGrid.CurrentCell.RowIndex].Cells[3].Value);
             editForm editForm = new editForm(employeeID);
-            editForm.Show();
+            editForm.ShowDialog();
+            FillEmployeeGrid();
         }
 
         private void AddEmployee()
         {
             AddEmployeeForm addEmployeeForm = new AddEmployeeForm();
-            addEmployeeForm.Show();
+            addEmployeeForm.ShowDialog();
+            FillEmployeeGrid();
         }
 
         private void DeleteEmloyee()
@@ -56,6 +58,7 @@ namespace ITSkills
             var employee = dataContext.Employees.SingleOrDefault(e => e.Id == employeeID);
             dataContext.Employees.DeleteOnSubmit(employee);
             dataContext.SubmitChanges();
+            FillEmployeeGrid();
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)

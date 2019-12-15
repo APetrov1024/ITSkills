@@ -154,6 +154,7 @@
             this.professionComboBox.Name = "professionComboBox";
             this.professionComboBox.Size = new System.Drawing.Size(180, 21);
             this.professionComboBox.TabIndex = 9;
+            this.professionComboBox.SelectedIndexChanged += new System.EventHandler(this.professionComboBox_SelectedIndexChanged);
             // 
             // skillsTableLayoutPanel
             // 

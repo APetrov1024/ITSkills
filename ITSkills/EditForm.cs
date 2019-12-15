@@ -78,6 +78,7 @@ namespace ITSkills
                          join es in dataContext.EmployeesSkills on s.Id equals es.SkillID
                          where es.EmployeeID == this.employeeID
                          select s.Skill;
+            employeeSkillsListBox.Items.Clear();
             foreach (string skill in skills)
             {
                 employeeSkillsListBox.Items.Add(skill);
@@ -87,14 +88,20 @@ namespace ITSkills
         private void FillProfessionSkillsList()
         {
             var dataContext = new ITSkillsDataContext();
-            var allSkills = from s in dataContext.Skills
+            /*var allSkills = from s in dataContext.Skills
                             join e in dataContext.Employees on s.ProfessionID equals e.ProfessionID
                             where e.Id == this.employeeID
+                            select s.Skill;*/
+            string profession = professionComboBox.SelectedItem.ToString();
+            int professionID = dataContext.Professions.SingleOrDefault(p => p.Profession == profession).Id;
+            var allSkills = from s in dataContext.Skills
+                            where s.ProfessionID == professionID
                             select s.Skill;
-            var employeeSkills = from s in dataContext.Skills
+             var employeeSkills = from s in dataContext.Skills
                                  join es in dataContext.EmployeesSkills on s.Id equals es.SkillID
                                  where es.EmployeeID == this.employeeID
                                  select s.Skill;
+            professionSkillsListBox.Items.Clear();
             foreach (string skill in allSkills.Except<string>(employeeSkills))
             {
                 professionSkillsListBox.Items.Add(skill);
@@ -103,18 +110,33 @@ namespace ITSkills
 
         private void AddSkillButton_Click(object sender, EventArgs e)
         {
-            string skill = professionSkillsListBox.SelectedItem.ToString();
-            professionSkillsListBox.Items.Remove(skill);
-            employeeSkillsListBox.Items.Add(skill);
+            if (professionSkillsListBox.SelectedItem != null)
+            {
+                string skill = professionSkillsListBox.SelectedItem.ToString();
+                professionSkillsListBox.Items.Remove(skill);
+                employeeSkillsListBox.Items.Add(skill);
+            }
         }
 
         private void removeSkillButton_Click(object sender, EventArgs e)
         {
-            string skill = employeeSkillsListBox.SelectedItem.ToString();
-            employeeSkillsListBox.Items.Remove(skill);
-            professionSkillsListBox.Items.Add(skill);
+            if (employeeSkillsListBox.SelectedItem != null)
+            {
+                string skill = employeeSkillsListBox.SelectedItem.ToString();
+                employeeSkillsListBox.Items.Remove(skill);
+                professionSkillsListBox.Items.Add(skill);
+            }
         }
 
+        private void removeEmployeeSkillsFromDB()
+        {
+            var dataContext = new ITSkillsDataContext();
+            var employeeSkills = from es in dataContext.EmployeesSkills
+                                 where es.EmployeeID == this.employeeID
+                                 select es;
+            dataContext.EmployeesSkills.DeleteAllOnSubmit(employeeSkills);
+            dataContext.SubmitChanges();
+        }
         private void saveToDB()
         {
             var dataContext = new ITSkillsDataContext();
@@ -128,6 +150,7 @@ namespace ITSkills
             employee.DateOfBirth = birthDateTimePicker.Value;
             string newProfession = professionComboBox.SelectedItem.ToString();
             employee.ProfessionID = dataContext.Professions.SingleOrDefault(p => p.Profession == newProfession).Id;
+            removeEmployeeSkillsFromDB();
             foreach (string skill in employeeSkillsListBox.Items)
             {
                 EmployeesSkills employeeSkill = new EmployeesSkills();
@@ -172,6 +195,25 @@ namespace ITSkills
             this.ValidateChildren();
             if (FormValidator.IsValidated(this, errorProvider1))
                 saveToDB();
+        }
+
+        private void professionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (employeeSkillsListBox.Items.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(
+                    "При смене професии необходимо удалить информацию об имеющихся у сотрудника навыках. Удалить информацию?",
+                    "Предупреждение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                {
+                    employeeSkillsListBox.Items.Clear();
+                }
+            }
+            FillProfessionSkillsList();
         }
     }
 }
