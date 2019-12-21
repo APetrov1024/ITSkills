@@ -28,10 +28,11 @@ namespace ITSkills
             {
                 professionsListBox.Items.Add(profession);
             }
-            professionsListBox.SelectedIndex = 0;
+            if (professionsListBox.Items.Count > 0)
+                professionsListBox.SelectedIndex = 0;
         }
 
-        private void AddProfession()
+        internal static void AddProfession()
         {
             string newProfessionName = InputDialog.Show("Введите название профессии", "Создание профессии");
             if (!String.IsNullOrWhiteSpace(newProfessionName))
@@ -48,7 +49,6 @@ namespace ITSkills
                     dataContext.SubmitChanges();
                 }
             }
-            InitProfessionsList();
         }
 
         private void DeleteProfession()
@@ -87,19 +87,33 @@ namespace ITSkills
         private void addProfessionToolStripButton_Click(object sender, EventArgs e)
         {
             AddProfession();
+            InitProfessionsList();
         }
 
         private void deleteToolStripButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Внимание! Данное действие безвозвратно удалит информацию о профессии из справочника. Вы уверены, что хотите удалить профессию?",
-                "Предупреждение",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-            if ((result == DialogResult.Yes) && IsProfessionCanBeDeleted())
-                DeleteProfession();
+            if (professionsListBox.SelectedItem != null)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Внимание! Данное действие безвозвратно удалит информацию о профессии из справочника. Вы уверены, что хотите удалить профессию?",
+                    "Предупреждение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                if ((result == DialogResult.Yes) && IsProfessionCanBeDeleted())
+                    DeleteProfession();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Не выбрана профессия для удаления",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
         }
     }
 }

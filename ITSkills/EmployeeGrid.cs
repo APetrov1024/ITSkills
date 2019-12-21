@@ -13,10 +13,44 @@ namespace ITSkills
 {
     public partial class EmployeesListForm : Form
     {
+        private bool isNeedToExit;
         public EmployeesListForm()
         {
             InitializeComponent();
             FillEmployeeGrid();
+            AtLeastOneProfessionMustExist();
+        }
+
+        internal int getProfessionsCount()
+        {
+            var dataContext = new ITSkillsDataContext();
+            var professions = from p in dataContext.Professions
+                              select p;
+            return professions.Count();
+        }
+
+        private void AtLeastOneProfessionMustExist()
+        {
+            while (getProfessionsCount() == 0)
+            {
+                DialogResult result = MessageBox.Show(
+                "В базе данных необнаружено ни одной профессии. Для корректной работы программы необходимо создать как минимум одну профессию. " +
+                "Создать профессию? (Нажмите \"Отмена\" для закрытия программы)",
+                "Необходимо добавить профессию",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.OK)
+                {
+                    ProfessionsForm.AddProfession();
+                }
+                else
+                {
+                    isNeedToExit = true;
+                    break;
+                }
+            }
         }
 
         private void FillEmployeeGrid()
@@ -73,7 +107,20 @@ namespace ITSkills
 
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditEmployee();
+            if (EmployeesGrid.CurrentCell != null)
+            {
+                EditEmployee();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Не выбран сотрудник для редактирования",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
         }
 
         private void addEmployeeStripButton_Click(object sender, EventArgs e)
@@ -83,32 +130,57 @@ namespace ITSkills
 
         private void deleteEmployeeToolStripButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Внимание! Данное действие безвозвратно удалит информацию о сотруднике и его навыках. Вы уверены, что хотите удалить сотрудника?",
-                "Предупреждение",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-            if (result == DialogResult.Yes)
-                DeleteEmloyee();
+            if (EmployeesGrid.CurrentCell != null)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Внимание! Данное действие безвозвратно удалит информацию о сотруднике и его навыках. Вы уверены, что хотите удалить сотрудника?",
+                    "Предупреждение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                    DeleteEmloyee();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Не выбран сотрудник для удаления",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
         }
 
         private void SkillsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SkillsForm skillsForm = new SkillsForm();
-            skillsForm.Show();
+            skillsForm.ShowDialog();
         }
 
         private void ProfessionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProfessionsForm professionsForm = new ProfessionsForm();
-            professionsForm.Show();
+            professionsForm.ShowDialog();
+            AtLeastOneProfessionMustExist();
+            if (isNeedToExit)
+                this.Close();
         }
 
         private void EmployeesGrid_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditEmployee();
+            if (EmployeesGrid.CurrentCell != null)
+            {
+                EditEmployee();
+            }
+        }
+
+        private void EmployeesListForm_Shown(object sender, EventArgs e)
+        {
+            if (isNeedToExit)
+                this.Close();
         }
     }
 }

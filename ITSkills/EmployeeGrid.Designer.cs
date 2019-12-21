@@ -176,6 +176,7 @@
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "EmployeesListForm";
             this.Text = "ITSkills";
+            this.Shown += new System.EventHandler(this.EmployeesListForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
